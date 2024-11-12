@@ -1,0 +1,398 @@
+{
+    "HEADER": {
+      "MORE": {
+        "TEXT": "Lebih"
+      }
+    },
+    "COMMON":{
+      "TABLE":{
+        "ADDDATA" : "Tambah Data",
+        "PLACEHOLDER-SEARCH" : "Cari...",
+        "SHOW" :"Menampilkan",
+        "DATA": "Data",
+        "SHOWING" : "menampilkan",
+        "OF" : "dari",
+        "ENTRIES" : "entri",
+        "NO-DATA-AVAILABLE": "Tidak Ada Data Yang Tersedia."
+      },
+      "BUTTON":{
+        "BUTTON-CLOSE": "Tutup",
+        "BUTTON-SUBMIT": "Kirim",
+        "BUTTON-EDIT": "Sunting Data",
+        "BUTTON-DELETE": "Hapus Data",
+        "BUTTON-VIEW-IMAGE": "Lihat Gambar"
+      }
+    },
+    "MASTER": {
+      "AUTH": {
+        "TITLE": "Otorisasi",
+        "HEADER": "Daftar Data Otorisasi",
+        "EMPLOYEE-CODE": "Kode Karyawan",
+        "EMPLOYEE-NAME": "Nama Karyawan",
+        "EMPLOYEE-ROLE": "Peran",
+        "EMPLOYEE-SITE": "Lokasi",
+        "ACTION": "Aksi",
+        "MODAL-ADDDATA": "Tambah Data Otorisasi",
+        "MODAL-EDITDATA": "Sunting Data Otorisasi",
+        "PLACEHOLDER-EMPLOYEE-CODE": "Cari & Pilih Kode Karyawan",
+        "PLACEHOLDER-EMPLOYEE-NAME": "Masukkan Nama Karyawan",
+        "PLACEHOLDER-EMPLOYEE-SITE": "Pilih Lokasi",
+        "PLACEHOLDER-EMPLOYEE-ROLE": "Pilih Peran"
+      },
+      "LINE": {
+        "TITLE": "Line",
+        "HEADER": "Daftar Data Line",
+        "LINE": "Line",
+        "LINE-CODE": "Kode Line",
+        "PLANT": "Pabrik",
+        "PLANT-CODE": "Kode Pabrik",
+        "ACTION": "Aksi",
+        "MODAL-ADDDATA": "Tambah Data Line",
+        "MODAL-EDITDATA": "Sunting Data Line",
+        "PLACEHOLDER-LINE": "Masukkan Line",
+        "PLACEHOLDER-LINE-CODE": "Masukkan Kode Line",
+        "PLACEHOLDER-LINE-PLANT": "Pilih Pabrik"
+      },
+      "PRODUCT":{
+        "TITLE": "Produk",
+        "HEADER": "Daftar Data Produk",
+        "PRODUCT-CODE": "Kode Produksi",
+        "PRODUCT-NAME": "Nama Produksi",
+        "ACTION": "Aksi",
+        "MODAL-ADDDATA": "Tambah Data Produksi",
+        "MODAL-EDITDATA": "Sunting Data Produksi",
+        "PLACEHOLDER-PRODUCT-CODE": "Masukkan Kode Produk",
+        "PLACEHOLDER-PRODUCT-NAME": "Masukkan Nama Produk",
+        "FILE-IMAGE": "Fail Gambar",
+        "PRODUCT-IMAGE" : "Gambar Produk",
+        "SELECTED" : "Dipilih:"
+      },
+      "DATABASE":{
+        "TITLE": "Database",
+        "HEADER": "Daftar Database",
+        "HOST": "Host",
+        "NAME": "Nama Database",
+        "PORT": "Port",
+        "USERNAME": "Nama Pengguna",
+        "PASSWORD": "Kata Sandi",
+        "DIALECT": "Dialek",
+        "ACTION": "Aksi",
+        "MODAL-ADDDATA": "Tambah Database",
+        "MODAL-EDITDATA": "Sunting Database",
+        "PLACEHOLDER-HOST": "Masukkan Host",
+        "PLACEHOLDER-NAME": "Masukkan Nama Database",
+        "PLACEHOLDER-PORT": "Masukkan Port",
+        "PLACEHOLDER-USERNAME": "Masukkan Nama Pengguna",
+        "PLACEHOLDER-PASSWORD": "Masukkan Kata Sandi",
+        "PLACEHOLDER-DIALECT": "Masukkan Dialek"
+      },
+      "DATA-SOURCE":{
+        "TITLE": "Sumber Data",
+        "HEADER": "Daftar Sumber Data",
+        "DATABASE": "Database",
+        "QUERY": "Kueri",
+        "RING": "Ring",
+        "DATA-ITEM" : "Item Data",
+        "LINE":"Line",
+        "TYPE-DATA": "Tipe Data",
+        "ACTION": "Aksi",
+        "MODAL-ADDDATA": "Tambah Sumber Data",
+        "MODAL-EDITDATA": "Sunting Sumber Data",
+        "PLACEHOLDER-DATABASE": "Pilih Database",
+        "PLACEHOLDER-QUERY": "Masukkan Kueri",
+        "PLACEHOLDER-RING": "Masukkan Ring",
+        "PLACEHOLDER-DATA-ITEM": "Masukkan Item Data",
+        "PLACEHOLDER-LINE": "Pilih Line",
+        "PLACEHOLDER-TYPE-DATA": "Pilih Tipe Data"
+      },
+      "STANDARD":{
+        "TITLE": "Standar",
+        "HEADER": "Daftar Standar Data",
+        "DATA-ITEM": "Item Data",
+        "MIN": "Min",
+        "MAX": "Maks",
+        "UNIT": "Satuan",
+        "PRODUCT-CATEGORY": "Kategori Produk",
+        "ACTION": "Aksi",
+        "MODAL-ADDDATA": "Tambah Data Standar",
+        "MODAL-EDITDATA": "Sunting Data Standar",
+        "PLACEHOLDER-DATA-ITEM": "Masukkan Item Data",
+        "PLACEHOLDER-MIN": "Masukkan Min",
+        "PLACEHOLDER-MAX": "Masukkan Maks",
+        "PLACEHOLDER-UNIT": "Masukkan Satuan",
+        "PLACEHOLDER-PRODUCT-CATEGORY": "Masukkan Kategori Produk"
+      }
+    },
+    "MENUITEMS": {
+      "MENU": {
+        "TEXT": "MENU"
+      },
+      "MASTERDATA": {
+        "TEXT": "Data Master",
+        "BADGE": "Baru",
+        "LIST": {
+          "AUTHORIZATION": "Otorisasi",
+          "LINE": "Line",
+          "PRODUCT": "Produk",
+          "DATABASE": "Database",
+          "DATA-SOURCE": "Sumber Data",
+          "STANDARD": "Standar"
+        }
+      },
+      "DASHBOARD": {
+        "TEXT": "Dasbor",
+        "BADGE": "Baru",
+        "LIST": {
+          "ANALYTICS": "Analitik",
+          "CRM": "CRM",
+          "ECOMMERCE": "Ecommerce",
+          "CRYPTO": "Kripto",
+          "PROJECTS": "Proyek",
+          "NFT": "NFT",
+          "JOB": "Pekerjaan"
+        }
+      },
+      "APPS": {
+        "TEXT": "Aplikasi",
+        "LIST": {
+          "CALENDAR": "Kalender",
+          "CHAT": "Obrolan",
+          "EMAIL": "Surel",
+          "MAILBOX": "Kotak Surat",
+          "MAILTEMPLATES": "Template Surel",
+          "BASICACTION": "Aksi Dasar",
+          "ECOMMERCEACTION": "Aksi Ecommerce",
+          "ECOMMERCE": "Ecommerce",
+          "PRODUCTS": "Produk",
+          "PRODUCTDETAILS": "Detail Produk",
+          "CREATEPRODUCT": "Buat Produk",
+          "ORDERS": "Pesanan",
+          "ORDERDETAILS": "Detail Pesanan",
+          "CUSTOMERS": "Pelanggan",
+          "SHOPPINGCART": "Keranjang Belanja",
+          "CHECKOUT": "Pembayaran",
+          "SELLERS": "Penjual",
+          "SELLERDETAILS": "Detail Penjual",
+          "PROJECTS": "Proyek",
+          "LIST": "Daftar",
+          "OVERVIEW": "Tinjauan",
+          "CREATEPROJECT": "Buat Proyek",
+          "TASK": "Tugas",
+          "KANBANBOARD": "Papan Kanban",
+          "LISTVIEW": "Tampilan Daftar",
+          "TASKDETAILS": "Detail Tugas",
+          "CRM": "CRM",
+          "CONTACTS": "Kontak",
+          "COMPANIES": "Perusahaan",
+          "DEALS": "Kesepakatan",
+          "LEADS": "Prospek",
+          "CRYPTO": "Kripto",
+          "TRANSACTIONS": "Transaksi",
+          "BUY&SELL": "Beli & Jual",
+          "MYWALLET": "Dompet Saya",
+          "ICOLIST": "Daftar ICO",
+          "KYCAPPLICATION": "Aplikasi KYC",
+          "INVOICES": "Faktur",
+          "DETAILS": "Detail",
+          "CREATEINVOICE": "Buat Faktur",
+          "SUPPORTTICKETS": "Tiket Dukungan",
+          "TICKETDETAILS": "Detail Tiket",
+          "NFTMARKETPLACE": "Pasar NFT",
+          "MARKETPLACE": "Pasar",
+          "EXPLORENOW": "Jelajahi Sekarang",
+          "LIVEAUCTION": "Lelang Langsung",
+          "ITEMDETAILS": "Detail Item",
+          "COLLECTIONS": "Koleksi",
+          "CREATORS": "Kreator",
+          "RANKING": "Peringkat",
+          "WALLETCONNECT": "Hubungkan Dompet",
+          "CREATENFT": "Buat NFT",
+          "FILEMANAGER": "Manajer File",
+          "TODO": "Yang Harus Dilakukan",
+          "JOBS": "Pekerjaan",
+          "STATISTICS": "Statistik",
+          "JOBLISTS": "Daftar Pekerjaan",
+          "GRID": "Grid",
+          "CANDIDATELISTS": "Daftar Kandidat",
+          "GRIDVIEW": "Tampilan Grid",
+          "APPLICATION": "Aplikasi",
+          "NEWJOB": "Pekerjaan Baru",
+          "COMPANIESLIST": "Daftar Perusahaan",
+          "JOBCATEGORIES": "Kategori Pekerjaan",
+          "APIKEY": "Kunci API"
+        }
+      },
+      "LAYOUTS": {
+        "TEXT": "Tata Letak",
+        "LIST": {
+          "HORIZONTAL": "Horisontal",
+          "DETACHED": "Terpisah",
+          "TWOCOLUMN": "Dua Kolom",
+          "HOVERED": "Hover"
+        }
+      },
+      "AUTHENTICATION": {
+        "TEXT": "Otentikasi",
+        "LIST": {
+          "BASIC": "Dasar",
+          "COVER": "Sampul",
+          "SIGNIN": "Masuk",
+          "SIGNUP": "Daftar",
+          "PASSWORDRESET": "Atur Ulang Kata Sandi",
+          "PASSWORDCREATE": "Buat Kata Sandi",
+          "LOCKSCREEN": "Layar Kunci",
+          "LOGOUT": "Keluar",
+          "SUCCESSMESSAGE": "Pesan Sukses",
+          "TWOSTEPVERIFICATION": "Verifikasi Dua Langkah",
+          "ERRORS": "Kesalahan",
+          "404BASIC": "404 Dasar",
+          "404COVER": "404 Sampul",
+          "404ALT": "404 Alt",
+          "500": "500",
+          "OFFLINE": "Halaman Offline"
+        }
+      },
+      "PAGES": {
+        "TEXT": "Halaman",
+        "LIST": {
+          "STARTER": "Permulaan",
+          "PROFILE": "Profil",
+          "SIMPLEPAGE": "Halaman Sederhana",
+          "SETTINGS": "Pengaturan",
+          "TEAM": "Tim",
+          "TIMELINE": "Linimasa",
+          "FAQS": "FAQ",
+          "PRICING": "Harga",
+          "GALLERY": "Galeri",
+          "MAINTENANCE": "Pemeliharaan",
+          "COMINGSOON": "Segera Hadir",
+          "SITEMAP": "Peta Situs",
+          "SEARCHRESULTS": "Hasil Pencarian",
+          "PRIVACYPOLICY": "Kebijakan Privasi",
+          "TERMS&CONDITIONS": "Syarat & Ketentuan"
+        }
+      },
+      "LANDING": {
+        "TEXT": "Landing",
+        "LIST": {
+          "ONEPAGE": "Satu Halaman",
+          "NFTLANDING": "Landing NFT",
+          "JOB": "Pekerjaan"
+        }
+      },
+      "COMPONENTS": {
+        "TEXT": "Komponen"
+      },
+      "BASEUI": {
+        "TEXT": "UI Dasar",
+        "LIST": {
+          "ALERTS": "Peringatan",
+          "BADGES": "Lencana",
+          "BUTTONS": "Tombol",
+          "COLORS": "Warna",
+          "CARDS": "Kartu",
+          "CAROUSEL": "Karusel",
+          "DROPDOWNS": "Dropdown",
+          "GRID": "Grid",
+          "IMAGES": "Gambar",
+          "TABS": "Tab",
+          "ACCORDION&COLLAPSE": "Acordion & Collapse",
+          "MODALS": "Modal",
+          "OFFCANVAS": "Offcanvas",
+          "PLACEHOLDERS": "Placeholder",
+          "PROGRESS": "Progres",
+          "NOTIFICATIONS": "Notifikasi",
+          "MEDIAOBJECT": "Objek Media",
+          "EMBEDVIDEO": "Sematkan Video",
+          "TYPOGRAPHY": "Tipografi",
+          "LISTS": "Daftar",
+          "GENERAL": "Umum",
+          "RIBBONS": "Pita",
+          "UTILITIES": "Utilitas"
+        }
+      },
+      "ADVANCEUI": {
+        "TEXT": "UI Lanjutan",
+        "LIST": {
+          "SWEETALERTS": "Sweet Alerts",
+          "NESTABLELIST": "Daftar Bersarang",
+          "SCROLLBAR": "Scrollbar",
+          "ANIMATION": "Animasi",
+          "TOUR": "Tur",
+          "SWIPERSLIDER": "Slider Swiper",
+          "RATTINGS": "Peringkat",
+          "HIGHLIGHT": "Sorot",
+          "SCROLLSPY": "ScrollSpy"
+        }
+      },
+      "WIDGETS": {
+        "TEXT": "Widget"
+      },
+      "FORMS": {
+        "TEXT": "Formulir",
+        "LIST": {
+          "BASICELEMENTS": "Elemen Dasar",
+          "FORMSELECT": "Pilih Formulir",
+          "CHECKBOXS&RADIOS": "Checkbox & Radio",
+          "PICKERS": "Picker",
+          "INPUTMASKS": "Input Mask",
+          "ADVANCED": "Lanjutan",
+          "RANGESLIDER": "Slider Rentang",
+          "VALIDATION": "Validasi",
+          "WIZARD": "Wizard",
+          "EDITORS": "Editor",
+          "FILEUPLOADS": "Unggah File",
+          "FORMLAYOUTS": "Tata Letak Formulir"
+        }
+      },
+      "TABLES": {
+        "TEXT": "Tabel",
+        "LIST": {
+          "BASICTABLES": "Tabel Dasar",
+          "GRIDJS": "Grid Js",
+          "LISTJS": "List Js",
+          "DATATABLES": "Datatables"
+        }
+      },
+      "CHARTS": {
+        "TEXT": "Grafik",
+        "LIST": {
+          "APEX": "Apex",
+          "LINE": "Grafik Garis",
+          "AREA": "Grafik Area",
+          "COLUMN": "Grafik Kolom",
+          "BAR": "Grafik Batang",
+          "MIXED": "Grafik Campuran",
+          "TIMELINE": "Linimasa",
+          "CANDLESTICK": "Grafik Lilin",
+          "BOXPLOT": "Grafik Kotak",
+          "BUBBLE": "Grafik Bubble",
+          "SCATTER": "Grafik Scatter",
+          "HEATMAP": "Peta Panas",
+          "TREEMAP": "Peta Pohon",
+          "PIE": "Grafik Pie",
+          "RADIALBAR": "Batang Radial",
+          "RADAR": "Grafik Radar",
+          "POLARAREA": "Grafik Area Polar"
+        }
+      },
+      "ICONS": {
+        "TEXT": "Ikon",
+        "LIST": {
+          "REMMIXICONS": "Ikon Remix",
+          "BOXICONS": "Ikon Kotak",
+          "MATERIALDESIGN": "Desain Material",
+          "LINEICONS": "Ikon Garis",
+          "FEATHERICONS": "Ikon Feather"
+        }
+      },
+      "MAPS": {
+        "TEXT": "Peta",
+        "LIST": {
+          "GOOGLEMAPS": "Peta Google",
+          "VECTORMAPS": "Peta Vektor",
+          "LEAFLETMAPS": "Peta Leaflet"
+        }
+      }
+    }
+}

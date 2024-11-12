@@ -1,0 +1,76 @@
+.custom-kotak {
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+    display: inline-block;
+    width: calc(100% - 30px);
+    margin-right: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+  }
+  
+  .title-sub-product {
+    margin-left: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 0px !important;
+  
+  }
+  
+  .title-badge {
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
+  
+  .title-badge h4 {
+    color: white;
+    text-align: start;
+  }
+  
+  .bg-result {
+    background-color: #687CFE !important;
+  }
+  
+  .card-result {
+    border-top-right-radius: 20px !important;
+    border-top-left-radius: 20px !important;
+  }
+  
+  .bg-result h3 {
+    color: white;
+  }
+  
+  .btn-custom button {
+    width: 80%;
+    margin: 10px;
+  }
+  
+  .ribbon-box {
+    border: 2px solid #687CFE !important;
+  }
+  
+  .btn-custom-back {
+    background-color: white;
+    color: black;
+    transition: color 0.3s, background-color 0.3s;
+    border: 1px solid #687cfe;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-custom-back:hover {
+    background-color: #687CFE;
+    color: white;
+  }
+  
+  .btn-custom-back i {
+    color: black;
+    font-size: 22px;
+  }
+  
+  .btn-custom-back:hover i {
+    color: white;
+  }
+  

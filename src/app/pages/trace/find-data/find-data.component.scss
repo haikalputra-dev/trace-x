@@ -1,0 +1,143 @@
+.card {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    background-color: #FBF7F4 !important;
+  }
+  
+  .text-title {
+    font-size: 50px;
+    color: #687CFE;
+    font-weight: 800;
+    font-family: 'Libre Franklin', sans-serif !important;
+    font-weight: 800;
+  }
+  
+  .text-sub-title {
+    margin-bottom: 70px;
+    margin-top: -5px;
+    color: black;
+    font-size: 16px;
+  }
+  
+  
+  .fixed-width {
+    width: 100px;
+  }
+  
+  .custom-button {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  
+  .title-search {
+    color: black;
+    margin-bottom: 25px !important;
+  }
+  
+  .custom-kotak {
+    background-color: white;
+    border: 1px solid #687CFE;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px 45px 25px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 850px;
+  }
+  
+  
+  .autocomplete-list {
+    max-height: 200px;
+    z-index: 100;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    position: absolute;
+    width: calc(100% - 2px);
+    margin-top: 5px;
+    padding: 0;
+    list-style-type: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    animation: fadeInDown 0.3s ease forwards;
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .autocomplete-list li {
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: "Public Sans", sans-serif;
+    font-size: 0.975rem;
+    color: #333;
+  }
+  
+  .autocomplete-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .position-relative {
+    position: relative;
+  }
+  
+  .autocomplete-list.ng-hide-add,
+  .autocomplete-list.ng-hide-remove {
+    display: block !important;
+  }
+  
+  .autocomplete-list.ng-hide-add {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .autocomplete-list.ng-hide-remove {
+    opacity: 0;
+    transform: translateY(-10px);
+    box-shadow: none;
+  }
+  
+  .clear-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
+  }
+  
+  .clear-icon i {
+    font-size: 20px;
+  }
+  
+  .ng-select.custom ::ng-deep.ng-select-container {
+    height: 50px !important;
+    font-size: 1.09375rem !important;
+    padding: 0px 10px !important;
+    border: 0px !important;
+    background-color: #F3F6F9 !important;
+  }
+  
+  .ng-select.custom ::ng-deep.ng-select-container .ng-value-container .ng-input {
+    padding: 5px 20px !important;
+  }
+  
+  .ng-select.custom ::ng-deep.ng-dropdown-panel .ng-dropdown-panel-items {
+    max-height: 180px !important;
+  }
+  

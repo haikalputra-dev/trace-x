@@ -1,0 +1,39 @@
+<ngx-spinner bdColor="rgba(0,0,0,0.5)" size="medium" color="#fff" type="ball-spin-clockwise-fade-rotating">
+</ngx-spinner>
+
+<app-breadcrumbs title="Detail Ring Two" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+
+<div class="row" @slideInRightDetail>
+  <div class="col-xl-12">
+    <div class="card">
+      <div
+        class="card-header animated-element card-result d-flex justify-content-center align-items-center bg-result position-relative">
+        <button type="button" (click)="navigateToBack()"
+          class="btn btn-custom-back btn-icon waves-effect waves-light position-absolute start-0">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+        <h3 class="mb-0">Ring 2 Information : {{ productLotNo }}</h3>
+      </div>
+      <div class="card-body form-steps">
+        <ngb-accordion #acc="ngbAccordion" [activeIds]="activePanelId" [closeOthers]="true">
+          <ngb-panel *ngFor="let panel of panels" [id]="panel.id" (shown)="onPanelChange(panel.id)">
+            <ng-template ngbPanelTitle class="accordion-header border-0 bg-transparent">
+              <h4>{{ panel.title }}</h4>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <!-- Menyisipkan komponen sesuai dengan ID panel -->
+              <ng-container [ngSwitch]="panel.id">
+                <app-production-machine-utility *ngSwitchCase="'utility-machine'"></app-production-machine-utility>
+                <app-production-machine-data *ngSwitchCase="'production-machine'"></app-production-machine-data>
+                <app-cleaning-sanitation *ngSwitchCase="'cleaning-sanitation'"></app-cleaning-sanitation>
+                <app-inspection-result-camera *ngSwitchCase="'inspection-result-camera'"></app-inspection-result-camera>
+                <app-inspection-external *ngSwitchCase="'inspection-external-result'"></app-inspection-external>
+                <app-water-performance *ngSwitchCase="'water-performance-result'"></app-water-performance>
+              </ng-container>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div>
+</div>

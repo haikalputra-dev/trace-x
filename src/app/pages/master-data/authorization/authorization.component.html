@@ -1,0 +1,182 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="{{'MASTER.AUTH.TITLE'| translate}}" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+<ngx-loading [show]="loading" [config]="{
+    animationType: ngxLoadingAnimationTypes.circle,
+    primaryColour: primaryColour,
+    secondaryColour: secondaryColour,
+    backdropBorderRadius: '3px'
+  }" [template]="customLoadingTemplate"></ngx-loading>
+<ng-template #customLoadingTemplate>
+  <div class="custom-class">
+    <h3>Loading...</h3>
+  </div>
+</ng-template>
+
+<!-- Main Authorization -->
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title mb-0 flex-grow-1">{{'MASTER.AUTH.HEADER'| translate}}</h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <!-- Filtering Table Data -->
+      <div class="col-md-6">
+        <div class="search-box">
+          <input type="text" class="form-control search" placeholder="{{'COMMON.TABLE.PLACEHOLDER-SEARCH'|translate}}"
+            [(ngModel)]="searchTerm" (input)="onSearch()" />
+          <i class="ri-search-line search-icon"></i>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div style="float: right">
+          <span style="margin-right: 4px">{{'COMMON.TABLE.SHOW'|translate}}</span>
+          <select class="data rounded-3" id="pageSizeDropdown" [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span style="margin-left: 4px">{{'COMMON.TABLE.DATA'|translate}}</span>
+        </div>
+      </div>
+      <!-- End Filtering Table Data -->
+      <div class="col-12 mt-3">
+        <button type="button" class="btn btn-primary btn-sm" (click)="onAction('add', '')">
+          <span class="ri-add-circle-line"></span>{{'COMMON.TABLE.ADDDATA'| translate}}
+        </button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <!-- Table Data -->
+      <div class="table-responsive">
+        <table class="table table-gridjs">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">No</th>
+              <th scope="col">{{'MASTER.AUTH.EMPLOYEE-CODE'| translate}}</th>
+              <th scope="col">{{'MASTER.AUTH.EMPLOYEE-NAME'| translate}}</th>
+              <th scope="col">{{'MASTER.AUTH.EMPLOYEE-ROLE'| translate}}</th>
+              <th scope="col">{{'MASTER.AUTH.EMPLOYEE-SITE'| translate}}</th>
+              <th scope="col">{{'MASTER.AUTH.CREATED-DATE'| translate}}</th>
+
+              <th scope="col" class="text-center">{{'MASTER.AUTH.ACTION'| translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of listData; let i = index">
+              <ng-container *ngIf="i >= (page - 1) * pageSize && i < page * pageSize">
+                <td class="text-center">{{ i + 1 }}</td>
+                <td>{{ data["employee_code"] }}</td>
+                <td>{{ data["employee_name"] | titleCase }}</td>
+                <td [innerHTML]="service.assignRole(data['role'])"></td>
+                <td>{{ data["site"] }}</td>
+                <td>{{ data["created_date"] | date: 'dd/MM/yyyy' }}</td>
+                <td class="text-center">
+                  <div class="hstack gap-2 justify-content-center">
+                    <button class="btn btn-info btn-icon waves-effect waves-light"
+                      ngbTooltip="{{'COMMON.BUTTON.BUTTON-EDIT'|translate}}" (click)="onAction('edit', data)">
+                      <span class="ri-edit-fill"></span>
+                    </button>
+                    <button class="btn btn-danger btn-icon waves-effect waves-light"
+                      ngbTooltip="{{'COMMON.BUTTON.BUTTON-DELETE'|translate}}" (click)="onDelete(data['id'])">
+                      <span class="ri-delete-bin-5-line"></span>
+                    </button>
+                  </div>
+                </td>
+              </ng-container>
+            </tr>
+            <tr *ngIf="listData?.length == 0">
+              <td colspan="8" class="text-center">{{'COMMON.TABLE.NO-DATA-AVAILABLE'|translate}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- End Table Data -->
+      <!-- Pagination -->
+      <div class="row justify-content-md-between align-items-md-center">
+        <div class="col col-sm-6">
+          <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
+            {{'COMMON.TABLE.SHOWING' | translate}} {{ getShowingText() }} {{'COMMON.TABLE.OF' | translate}} {{
+            totalRecords }} {{'COMMON.TABLE.ENTRIES' | translate}}
+          </div>
+        </div>
+        <div class="col col-sm-6">
+          <div class="pagination justify-content-end">
+            <ngb-pagination [collectionSize]="totalRecords" [(page)]="page" [pageSize]="pageSize" [maxSize]="3"
+              [ellipses]="false"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+      <!-- End Pagination -->
+    </div>
+  </div>
+</div>
+<!-- End  Main Authorization -->
+
+<!-- Modal Form -->
+<ng-template #modalForm let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        {{ statusForm === 'Add' ? ('MASTER.AUTH.MODAL-ADDDATA' | translate) : ('MASTER.AUTH.MODAL-EDITDATA' |
+        translate) }}
+      </h4>
+    </div>
+
+    <div class="modal-body">
+      <form [formGroup]="formData" class="md-float-material" autocomplete="off">
+        <div class="row">
+          <div class="form-grup col-12">
+            <label for="employee" class="form-label text-muted">{{'MASTER.AUTH.EMPLOYEE-CODE' | translate}}</label>
+            <ng-select [items]="dataEmployee" bindLabel="label" bindValue="lg_nik" formControlName="employee_code"
+              placeholder="{{'MASTER.AUTH.PLACEHOLDER-EMPLOYEE-CODE' | translate}}" [typeahead]="typeaheadEmployee"
+              [ngClass]="{
+                'is-invalid':
+                  form['employee_code'].touched && form['employee_code'].errors
+              }" (change)="onSelectEmployeeCode($event)">
+            </ng-select>
+          </div>
+          <div class="form-group col-12 mt-2">
+            <label for="employee_name" class="form-label text-muted">{{'MASTER.AUTH.EMPLOYEE-NAME' | translate}}</label>
+            <input type="text" class="form-control" formControlName="employee_name"
+              placeholder="{{'MASTER.AUTH.PLACEHOLDER-EMPLOYEE-NAME' | translate}}" [ngClass]="{
+                'is-invalid':
+                  form['employee_name'].touched && form['employee_name'].errors
+              }" />
+          </div>
+          <div class="form-group col-12 mt-2">
+            <label for="site" class="form-label text-muted">{{'MASTER.AUTH.EMPLOYEE-SITE' | translate}}</label>
+            <ng-select [items]="dataSite" bindLabel="label" bindValue="value" formControlName="site"
+              placeholder="{{'MASTER.AUTH.PLACEHOLDER-EMPLOYEE-SITE' | translate}}" [ngClass]="{
+                'is-invalid': form['role'].touched && form['role'].errors
+              }">
+            </ng-select>
+          </div>
+          <div class="form-group col-12 mt-2">
+            <label for="role" class="form-label text-muted">{{'MASTER.AUTH.EMPLOYEE-ROLE' | translate}}</label>
+            <ng-select [items]="dataRole" bindLabel="role" bindValue="id" formControlName="role"
+              placeholder="{{'MASTER.AUTH.PLACEHOLDER-EMPLOYEE-ROLE' | translate}}" [ngClass]="{
+                'is-invalid': form['role'].touched && form['role'].errors
+              }">
+            </ng-select>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light btn-outline-danger" (click)="onCloseModal()" rippleEffect>
+        {{'COMMON.BUTTON.BUTTON-CLOSE' | translate}}
+      </button>
+      <button class="btn btn-primary btn-submit" rippleEffect (click)="onSubmit()">
+        {{'COMMON.BUTTON.BUTTON-SUBMIT' | translate}}
+      </button>
+    </div>
+  </div>
+</ng-template>
+<!-- End Modal Form -->

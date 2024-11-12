@@ -1,0 +1,256 @@
+   <ul ngbNav #customNavLabel="ngbNav" [activeId]="1" animated-element
+     class="nav nav-tabs-custom rounded border-bottom-0" role="tablist">
+     <li [ngbNavItem]="1" class="nav-item" (click)="
+                                  onTabChange(
+                                    $event,
+                                    'air_compressor_8_bar_label'
+                                  )
+                                ">
+       <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+         Air Compressor 8 Bar
+       </a>
+       <ng-template ngbNavContent>
+         <div *ngIf="
+                                      dataMinMaxLabelAirCompressor8Bar;
+                                      else loadingTemplate
+                                    ">
+           <div class="row">
+             <div class="col-xl-3 col-md-6">
+               <div class="row">
+                 <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                   <div class="card card-animate no-shadow-{{
+                                                section.color
+                                              }}" style="cursor: pointer" (click)="onChangeChart(section)">
+                     <div class="card-body">
+                       <div class="d-flex justify-content-between">
+                         <div>
+                           <h5 class="mb-3 text-primary">
+                             {{ section.title }}
+                           </h5>
+                           <div class="d-flex mb-1">
+                             <p class="text-truncate fw-bold fs-15 mb-0">
+                               max :
+                               {{
+                                                          formatNumber(
+                                                            dataMinMaxLabelAirCompressor8Bar[
+                                                              section.maxKey
+                                                            ]
+                                                          )
+                                                        }}
+                             </p>
+                           </div>
+                           <div class="d-flex mb-1">
+                             <p class="text-truncate fw-bold fs-15 mb-0">
+                               min :
+                               {{
+                                                          formatNumber(
+                                                            dataMinMaxLabelAirCompressor8Bar[
+                                                              section.minKey
+                                                            ]
+                                                          )
+                                                        }}
+                             </p>
+                           </div>
+                           <div class="d-flex mb-1">
+                             <p class="text-truncate fw-bold fs-15 mb-0">
+                               avg :
+                               {{
+                                                          formatNumber(
+                                                            dataMinMaxLabelAirCompressor8Bar[
+                                                              section.avgKey
+                                                            ]
+                                                          )
+                                                        }}
+                             </p>
+                           </div>
+                         </div>
+                         <div>
+                           <div>
+                             <i-feather name="external-link" class="text-primary feather-icon-align">
+                             </i-feather>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <!-- end card body -->
+                   </div>
+                   <!-- end card -->
+                 </div>
+                 <!-- end col -->
+               </div>
+               <!-- end row -->
+             </div>
+             <div class="col-xl-9 col-md-6">
+               <h4 class="fw-bold">
+                 {{ activeTitle }}
+               </h4>
+               <div class="hstack gap-1"></div>
+               <div *ngIf="chartRendered">
+                 <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                   style="width: 100%; height: 400px; display: block;">
+                 </highcharts-chart>
+                 <!-- <apx-chart [series]="utilityTrendChart.series" [chart]="utilityTrendChart.chart"
+                                          [xaxis]="utilityTrendChart.xaxis" [yaxis]="utilityTrendChart.yaxis"
+                                          [dataLabels]="utilityTrendChart.dataLabels" [stroke]="utilityTrendChart.stroke"
+                                          [annotations]="utilityTrendChart.annotations" [title]="utilityTrendChart.title"
+                                          [colors]="utilityTrendChart.colors">
+                                          </apx-chart> -->
+               </div>
+               <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+                 <div class="mb-2">
+                   <h6>
+                     Standard :
+                     <small class="text-muted fs-13 fw-normal">
+                       {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                       {{ dataStandard.max }} {{ dataStandard.unit || "" }}
+                     </small>
+                   </h6>
+                 </div>
+                 <div class="d-flex flex-wrap gap-2 align-items-center">
+                   <h6>Status :</h6>
+                   <button type="button" class="btn btn-label rounded-pill"
+                     [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                     <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                     {{ dataStandard.status }}
+                   </button>
+                 </div>
+               </div>
+               <div *ngIf="!chartRendered">
+                 <h4 class="no-data">No Data</h4>
+               </div>
+             </div>
+           </div>
+         </div>
+         <ng-template #loadingTemplate>
+           <p>Loading...</p>
+           <!-- Tampilkan loading indicator saat data belum tersedia -->
+         </ng-template>
+       </ng-template>
+     </li>
+     <li [ngbNavItem]="2" class="nav-item" (click)="onTabChange($event, 'listrik_label')">
+       <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab">
+         Listrik
+       </a>
+       <ng-template ngbNavContent>
+         <div *ngIf="
+                                      dataMinMaxLabelListrik;
+                                      else loadingTemplate
+                                    ">
+           <div class="row">
+             <div class="col-xl-3 col-md-6">
+               <div class="row">
+                 <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                   <div class="card card-animate no-shadow-{{
+                                                section.color
+                                              }}" style="cursor: pointer" (click)="onChangeChart(section)">
+                     <div class="card-body">
+                       <div class="d-flex justify-content-between">
+                         <div>
+                           <h5 class="mb-3 text-primary">
+                             {{ section.title }}
+                           </h5>
+                           <div class="d-flex mb-1">
+                             <p class="text-truncate fw-bold fs-15 mb-0">
+                               max :
+                               {{
+                                                          formatNumber(
+                                                            dataMinMaxLabelListrik[
+                                                              section.maxKey
+                                                            ]
+                                                          )
+                                                        }}
+                             </p>
+                           </div>
+                           <div class="d-flex mb-1">
+                             <p class="text-truncate fw-bold fs-15 mb-0">
+                               min :
+                               {{
+                                                          formatNumber(
+                                                            dataMinMaxLabelListrik[
+                                                              section.minKey
+                                                            ]
+                                                          )
+                                                        }}
+                             </p>
+                           </div>
+                           <div class="d-flex mb-1">
+                             <p class="text-truncate fw-bold fs-15 mb-0">
+                               avg :
+                               {{
+                                                          formatNumber(
+                                                            dataMinMaxLabelListrik[
+                                                              section.avgKey
+                                                            ]
+                                                          )
+                                                        }}
+                             </p>
+                           </div>
+                         </div>
+                         <div>
+                           <div>
+                             <i-feather name="external-link" class="text-primary feather-icon-align">
+                             </i-feather>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <!-- end card body -->
+                   </div>
+                   <!-- end card -->
+                 </div>
+                 <!-- end col -->
+               </div>
+               <!-- end row -->
+             </div>
+             <div class="col-xl-9 col-md-6">
+               <h4 class="fw-bold">
+                 {{ activeTitle }}
+               </h4>
+               <div class="hstack gap-1"></div>
+               <div *ngIf="chartRendered">
+                 <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                   style="width: 100%; height: 400px; display: block;">
+                 </highcharts-chart>
+                 <!-- <apx-chart [series]="utilityTrendChart.series" [chart]="utilityTrendChart.chart"
+                                          [xaxis]="utilityTrendChart.xaxis" [yaxis]="utilityTrendChart.yaxis"
+                                          [dataLabels]="utilityTrendChart.dataLabels" [stroke]="utilityTrendChart.stroke"
+                                          [annotations]="utilityTrendChart.annotations" [title]="utilityTrendChart.title"
+                                          [colors]="utilityTrendChart.colors">
+                                          </apx-chart> -->
+               </div>
+               <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+                 <div class="mb-2">
+                   <h6>
+                     Standard :
+                     <small class="text-muted fs-13 fw-normal">
+                       {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                       {{ dataStandard.max }} {{ dataStandard.unit || "" }}
+                     </small>
+                   </h6>
+                 </div>
+                 <div class="d-flex flex-wrap gap-2 align-items-center">
+                   <h6>Status :</h6>
+                   <button type="button" class="btn btn-label rounded-pill"
+                     [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                     <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                     {{ dataStandard.status }}
+                   </button>
+                 </div>
+               </div>
+               <div *ngIf="!chartRendered">
+                 <h4 class="no-data">No Data</h4>
+               </div>
+             </div>
+           </div>
+         </div>
+         <ng-template #loadingTemplate>
+           <p>Loading...</p>
+           <!-- Tampilkan loading indicator saat data belum tersedia -->
+         </ng-template>
+       </ng-template>
+     </li>
+   </ul>
+   <hr />
+   <div class="tab-content mt-1">
+     <div [ngbNavOutlet]="customNavLabel"></div>
+   </div>

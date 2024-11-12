@@ -1,0 +1,39 @@
+<form class="vertical-navs-step">
+  <div class="row gy-5">
+    <div class="col-lg-2">
+      <div role="tablist" aria-orientation="vertical">
+        <ul ngbNav #customNav="ngbNav" [(activeId)]="activeTabId" class="nav flex-column custom-nav nav-pills"
+          role="tablist">
+          <li *ngFor="let tab of tabs" [ngbNavItem]="tab.id" class="nav-item">
+            <a ngbNavLink class="nav-link animated-element" (click)="saveTab(tab.id)" data-bs-toggle="tab" role="tab">
+              <span class="step-title me-2">{{ tab.title }}</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-container [ngSwitch]="tab.id">
+                <app-production-machine-data-preparation *ngSwitchCase="1">
+                </app-production-machine-data-preparation>
+                <app-production-machine-data-injection *ngSwitchCase="2">
+                </app-production-machine-data-injection>
+                <app-production-machine-data-blow *ngSwitchCase="3">
+                </app-production-machine-data-blow>
+                <app-production-machine-data-filler *ngSwitchCase="4">
+                </app-production-machine-data-filler>
+                <app-production-machine-data-packing *ngSwitchCase="5">
+                </app-production-machine-data-packing>
+                <app-production-machine-data-caser *ngSwitchCase="6">
+                </app-production-machine-data-caser>
+              </ng-container>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <div class="px-lg-4">
+        <div class="tab-content">
+          <div [ngbNavOutlet]="customNav"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,30 @@
+<form class="vertical-navs-step">
+    <div class="row gy-5">
+      <div class="col-lg-2">
+        <div role="tablist" aria-orientation="vertical">
+          <ul ngbNav #customNav="ngbNav" [(activeId)]="activeTabId" class="nav flex-column custom-nav nav-pills"
+            role="tablist">
+            <li *ngFor="let tab of tabs" [ngbNavItem]="tab.id" class="nav-item">
+              <a ngbNavLink class="nav-link animated-element" (click)="saveTab(tab.id)" data-bs-toggle="tab" role="tab">
+                <span class="step-title me-2">{{ tab.title }}</span>
+              </a>
+              <ng-template ngbNavContent>
+                <ng-container [ngSwitch]="tab.id">
+                  <app-inspection-camera-label-area-oc3 *ngSwitchCase="1"></app-inspection-camera-label-area-oc3>
+                  <app-inspection-camera-ijp-area-oc3 *ngSwitchCase="2"></app-inspection-camera-ijp-area-oc3>
+                  <app-inspection-camera-cap-area-oc3 *ngSwitchCase="3"></app-inspection-camera-cap-area-oc3>
+                </ng-container>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        <div class="px-lg-4">
+          <div class="tab-content">
+            <div [ngbNavOutlet]="customNav"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

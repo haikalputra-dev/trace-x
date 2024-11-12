@@ -1,0 +1,109 @@
+.bg-result {
+  background-color: #687CFE !important;
+}
+
+.card-header {
+  height: 80px !important;
+}
+
+
+
+.card-result {
+  border-top-right-radius: 20px !important;
+  border-top-left-radius: 20px !important;
+}
+
+.bg-result h3 {
+  color: white;
+}
+
+.ribbon-box {
+  border: 2px solid #687CFE !important;
+}
+
+.btn-custom-back {
+  background-color: white;
+  color: black;
+  transition: color 0.3s, background-color 0.3s;
+  border: 1px solid #687cfe;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 12px;
+  top: 50%;
+  border-radius: 5px;
+  transform: translateY(-50%);
+}
+
+.btn-custom-back:hover {
+  background-color: #8c9bff;
+  color: white;
+}
+
+.btn-custom-back i {
+  color: black;
+  font-size: 22px;
+}
+
+.btn-custom-back:hover i {
+  color: white;
+}
+
+.vertical-navs-step .nav .nav-link {
+  background-color: white !important;
+}
+
+.vertical-navs-step .nav .nav-link:hover {
+  border: 1px solid #687cfe;
+}
+
+.vertical-navs-step .nav .nav-link.active {
+  background-color: #687cfe !important;
+  color: white !important;
+}
+
+
+.no-data {
+  text-align: center;
+  margin-top: 15%;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 20px;
+}
+
+
+.tab-box-grey {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #afafaf;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-box {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.pdf-container {
+  width: 70%;
+  margin: 0 auto;
+  height: 90vh;
+}
+
+::ng-deep ngx-extended-pdf-viewer {
+  display: block;
+  height: 100%;
+  width: 100%;
+}

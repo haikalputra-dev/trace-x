@@ -1,0 +1,120 @@
+<div class="tab-content">
+  <ng-container>
+    <div class="row">
+      <!-- Filtering Table Data -->
+      <div class="col-md-6">
+        <div class="search-box">
+          <input type="text" #searchInput class="form-control search" placeholder="Search..."
+            (input)="onSearchAll(searchInput.value)" />
+          <i class="ri-search-line search-icon"></i>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div style="float: right;">
+          <span style="margin-right: 4px;">Show</span>
+          <select class="data rounded-3" id="pageSizeDropdown" #pageSizeDropdown [value]="pageSize"
+            (change)="onPageSizeChange(pageSizeDropdown.value)">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span style="margin-left: 4px;">Data</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="table-responsive">
+        <table class="table table-gridjs">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">No</th>
+              <th scope="col">Lot No</th>
+              <th scope="col">Pro</th>
+              <th scope="col">Petugas</th>
+              <th scope="col">Bakteri</th>
+              <th scope="col">Yeast</th>
+              <th scope="col">TAB</th>
+              <th scope="col">TM</th>
+              <th scope="col">E-Coli</th>
+              <th scope="col">Passable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of listData; let i = index">
+              <ng-container *ngIf="i >= (page - 1) * pageSize && i < page * pageSize">
+                <td class="text-center">{{ i + 1 }}</td>
+                <td>{{ data['lotno'] }}</td>
+                <td>{{ data['pro'] }}</td>
+                <td>{{ data['nama'] }}</td>
+                <td>{{ data['tb'] }}</td>
+                <td>
+                  <span class="badge rounded-pill"
+                    [class.text-bg-primary]="checkPassDataMicrobiologyIfOK(data['total_yeast']) === 'OK'"
+                    [class.text-bg-danger]="checkPassDataMicrobiologyIfOK(data['total_yeast']) !== 'OK'"
+                    style="font-size: 13px;">
+                    {{ checkPassDataMicrobiologyIfOK(data['total_yeast']) }}
+                  </span>
+                </td>
+                <td>
+                  <span class="badge rounded-pill"
+                    [class.text-bg-primary]="checkPassDataMicrobiologyIfOK(data['tab']) === 'OK'"
+                    [class.text-bg-danger]="checkPassDataMicrobiologyIfOK(data['tab']) !== 'OK'"
+                    style="font-size: 13px;">
+                    {{ checkPassDataMicrobiologyIfOK(data['tab']) }}
+                  </span>
+                </td>
+                <td>
+                  <span class="badge rounded-pill"
+                    [class.text-bg-primary]="checkPassDataMicrobiologyIfOK(data['tm']) === 'OK'"
+                    [class.text-bg-danger]="checkPassDataMicrobiologyIfOK(data['tm']) !== 'OK'"
+                    style="font-size: 13px;">
+                    {{ checkPassDataMicrobiologyIfOK(data['tm']) }}
+                  </span>
+                </td>
+                <td>
+                  <span class="badge rounded-pill"
+                    [class.text-bg-primary]="checkPassDataMicrobiologyIfOK(data['e_coli']) === 'OK'"
+                    [class.text-bg-danger]="checkPassDataMicrobiologyIfOK(data['e_coli']) !== 'OK'"
+                    style="font-size: 13px;">
+                    {{ checkPassDataMicrobiologyIfOK(data['e_coli']) }}
+                  </span>
+                </td>
+                <td>
+                  <span class="badge rounded-pill"
+                    [class.text-bg-success]="checkPassDataMicrobiology(data['total_yeast'], data['tab'], data['tm'], data['e_coli']) === 'PASS'"
+                    [class.text-bg-danger]="checkPassDataMicrobiology(data['total_yeast'], data['tab'], data['tm'], data['e_coli']) === 'NOT PASS'"
+                    style="font-size: 13px;">
+                    {{ checkPassDataMicrobiology(data['total_yeast'], data['tab'],data['tm'], data['e_coli']) }}
+                  </span>
+                </td>
+              </ng-container>
+            </tr>
+            <tr *ngIf="listData?.length == 0">
+              <td colspan="13" class="text-center">No data available.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- End Table Data -->
+      <!-- Pagination -->
+      <div class="row justify-content-md-between align-items-md-center">
+        <div class="col col-sm-6">
+          <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
+            {{ getShowingText() }} of {{ totalRecords }} entries
+          </div>
+        </div>
+        <div class="col col-sm-6">
+          <div class="pagination justify-content-end">
+            <ngb-pagination [collectionSize]="totalRecords" [(page)]="page" [pageSize]="pageSize" [maxSize]="3"
+              [ellipses]="false"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

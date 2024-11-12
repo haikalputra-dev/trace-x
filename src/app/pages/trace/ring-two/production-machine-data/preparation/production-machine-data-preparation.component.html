@@ -1,0 +1,78 @@
+<div *ngIf="dataMinMaxProductionPreparation; else loadingTemplate">
+  <div class="row">
+    <div class="col-xl-3 col-md-6">
+      <div class="row">
+        <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+          <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+            (click)="onChangeChartProductionMachineData(section)">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                  <div class="d-flex mb-1">
+                    <p class="text-truncate fw-bold fs-15 mb-0">
+                      max :
+                      {{ formatNumber(dataMinMaxProductionPreparation[section.maxKey]) }}
+                    </p>
+                  </div>
+                  <div class="d-flex mb-1">
+                    <p class="text-truncate fw-bold fs-15 mb-0">
+                      min :
+                      {{ formatNumber(dataMinMaxProductionPreparation[section.minKey]) }}
+                    </p>
+                  </div>
+                  <div class="d-flex mb-1">
+                    <p class="text-truncate fw-bold fs-15 mb-0">
+                      avg :
+                      {{ formatNumber(dataMinMaxProductionPreparation[section.avgKey]) }}
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <i-feather name="external-link" class="text-primary feather-icon-align">
+                    </i-feather>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-md-6">
+      <h4 class="fw-bold"> {{ activeTitle }} </h4>
+      <div class="hstack gap-1"></div>
+      <div *ngIf="chartRendered">
+        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+          style="width: 100%; height: 400px; display: block;">
+        </highcharts-chart>
+      </div>
+      <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+        <div class="mb-2">
+          <h6>
+            Standard :
+            <small class="text-muted fs-13 fw-normal">
+              {{ dataStandard.min }} {{ dataStandard.unit || "" }} - {{ dataStandard.max }}
+              {{ dataStandard.unit || "" }}
+            </small>
+          </h6>
+        </div>
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <h6>Status :</h6>
+          <button type="button" class="btn btn-label rounded-pill"
+            [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+            <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+            {{ dataStandard.status }}
+          </button>
+        </div>
+      </div>
+      <div *ngIf="!chartRendered">
+        <h4 class="no-data">No Data</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loadingTemplate>
+  <p>Loading...</p>
+</ng-template>

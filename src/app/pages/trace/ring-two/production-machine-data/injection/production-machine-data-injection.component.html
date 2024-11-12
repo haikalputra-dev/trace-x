@@ -1,0 +1,763 @@
+ <ul ngbNav #customNavInjectionProduction="ngbNav" [activeId]="1" animated-element
+   class="nav nav-tabs-custom rounded border-bottom-0" role="tablist">
+   <li [ngbNavItem]="1" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_ejector_forward')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Ejector Forward </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionEjectorForward; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorForward[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorForward[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorForward[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="2" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_ejector_back')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Ejector Back </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionEjectorBack; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorBack[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorBack[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorBack[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="3" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_ejector_booster')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Ejector Booster </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionEjectorBooster; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorBooster[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorBooster[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionEjectorBooster[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="4" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_cooling')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Injection Cooling </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionCooling; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionCooling[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionCooling[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionCooling[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="5" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_hold')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Injection Hold </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionHold; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row" style="max-height: 550px; overflow-y: scroll">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionHold[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionHold[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionHold[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="6" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_fast_fill')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Injection Fast Fill </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionFastFill; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionFastFill[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionFastFill[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionFastFill[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="7" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_robot')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Robot </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionRobot; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionRobot[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionRobot[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionRobot[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="8" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_mold_position')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Mold Position </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionMoldPosition; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionMoldPosition[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionMoldPosition[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionMoldPosition[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+   <li [ngbNavItem]="9" class="nav-item" (click)="onTabChangeProductionMachine('production_injection_others')">
+     <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab"> Other </a>
+     <ng-template ngbNavContent>
+       <div *ngIf="dataMinMaxProductionInjectionOther; else loadingTemplate">
+         <div class="row">
+           <div class="col-xl-3 col-md-6">
+             <div class="row" style="max-height: 550px; overflow-y: scroll">
+               <div *ngFor="let section of dataSections" class="col-lg-12 mb-2">
+                 <div class="card card-animate no-shadow-{{ section.color }}" style="cursor: pointer"
+                   (click)="onChangeChartProductionMachineData(section)">
+                   <div class="card-body">
+                     <div class="d-flex justify-content-between">
+                       <div>
+                         <h5 class="mb-3 text-primary"> {{ section.title }} </h5>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             max :
+                             {{ formatNumber(dataMinMaxProductionInjectionOther[section.maxKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             min :
+                             {{ formatNumber(dataMinMaxProductionInjectionOther[section.minKey]) }}
+                           </p>
+                         </div>
+                         <div class="d-flex mb-1">
+                           <p class="text-truncate fw-bold fs-15 mb-0">
+                             avg :
+                             {{ formatNumber(dataMinMaxProductionInjectionOther[section.avgKey]) }}
+                           </p>
+                         </div>
+                       </div>
+                       <div>
+                         <div>
+                           <i-feather name="external-link" class="text-primary feather-icon-align">
+                           </i-feather>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-9 col-md-6">
+             <h4 class="fw-bold"> {{ activeTitle }} </h4>
+             <div class="hstack gap-1"></div>
+             <div *ngIf="chartRendered">
+               <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [update]="true"
+                 style="width: 100%; height: 400px; display: block;">
+               </highcharts-chart>
+             </div>
+             <div *ngIf="chartRendered" class="card-header border-0 mt-2">
+               <div class="mb-2">
+                 <h6>
+                   Standard :
+                   <small class="text-muted fs-13 fw-normal">
+                     {{ dataStandard.min }} {{ dataStandard.unit || "" }} -
+                     {{ dataStandard.max }}
+                     {{ dataStandard.unit || "" }}
+                   </small>
+                 </h6>
+               </div>
+               <div class="d-flex flex-wrap gap-2 align-items-center">
+                 <h6>Status :</h6>
+                 <button type="button" class="btn btn-label rounded-pill"
+                   [ngClass]="dataStandard.status === 'Comply' ? 'btn-info' : 'btn-danger'">
+                   <i class="ri-check-double-fill label-icon align-middle rounded-pill fs-16 me-2"></i>
+                   {{ dataStandard.status }}
+                 </button>
+               </div>
+             </div>
+             <div *ngIf="!chartRendered">
+               <h4 class="no-data">No Data</h4>
+             </div>
+           </div>
+         </div>
+       </div>
+       <ng-template #loadingTemplate>
+         <p>Loading...</p>
+       </ng-template>
+     </ng-template>
+   </li>
+ </ul>
+ <hr />
+ <div class="tab-content mt-1">
+   <div [ngbNavOutlet]="customNavInjectionProduction"></div>
+ </div>

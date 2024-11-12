@@ -1,0 +1,233 @@
+{
+  "HEADER": {
+    "MORE": {
+      "TEXT": "もっと"
+    }
+  },
+  "COMMON": {
+    "TABLE": {
+      "ADDDATA": "データを追加",
+      "PLACEHOLDER-SEARCH": "検索...",
+      "SHOW": "表示",
+      "DATA": "データ",
+      "SHOWING": "表示中",
+      "OF": "の",
+      "ENTRIES": "エントリー",
+      "NO-DATA-AVAILABLE": "データがありません。"
+    },
+    "BUTTON": {
+      "BUTTON-CLOSE": "閉じる",
+      "BUTTON-SUBMIT": "送信",
+      "BUTTON-EDIT": "データを編集",
+      "BUTTON-DELETE": "データを削除",
+      "BUTTON-VIEW-IMAGE": "画像を見る"
+    }
+  },
+  "MASTER": {
+    "AUTH": {
+      "TITLE": "認可",
+      "HEADER": "認可データリスト",
+      "EMPLOYEE-CODE": "従業員コード",
+      "EMPLOYEE-NAME": "従業員名",
+      "EMPLOYEE-ROLE": "役割",
+      "EMPLOYEE-SITE": "サイト",
+      "ACTION": "アクション",
+      "MODAL-ADDDATA": "認可データを追加",
+      "MODAL-EDITDATA": "認可データを編集",
+      "PLACEHOLDER-EMPLOYEE-CODE": "従業員コードを検索して選択",
+      "PLACEHOLDER-EMPLOYEE-NAME": "従業員名を入力",
+      "PLACEHOLDER-EMPLOYEE-SITE": "サイトを選択",
+      "PLACEHOLDER-EMPLOYEE-ROLE": "役割を選択"
+    },
+    "LINE": {
+      "TITLE": "ライン",
+      "HEADER": "ラインデータリスト",
+      "LINE": "ライン",
+      "LINE-CODE": "ラインコード",
+      "PLANT": "プラント",
+      "PLANT-CODE": "プラントコード",
+      "ACTION": "アクション",
+      "MODAL-ADDDATA": "ラインデータを追加",
+      "MODAL-EDITDATA": "ラインデータを編集",
+      "PLACEHOLDER-LINE": "ラインを入力",
+      "PLACEHOLDER-LINE-CODE": "ラインコードを入力",
+      "PLACEHOLDER-LINE-PLANT": "プラントを選択"
+    },
+    "PRODUCT": {
+      "TITLE": "製品",
+      "HEADER": "製品データリスト",
+      "PRODUCT-CODE": "製品コード",
+      "PRODUCT-NAME": "製品名",
+      "ACTION": "アクション",
+      "MODAL-ADDDATA": "製品データを追加",
+      "MODAL-EDITDATA": "製品データを編集",
+      "PLACEHOLDER-PRODUCT-CODE": "製品コードを入力",
+      "PLACEHOLDER-PRODUCT-NAME": "製品名を入力",
+      "FILE-IMAGE": "ファイル画像",
+      "PRODUCT-IMAGE": "製品画像",
+      "SELECTED": "選択済み："
+    },
+    "DATABASE": {
+      "TITLE": "データベース",
+      "HEADER": "データベースリスト",
+      "HOST": "ホスト",
+      "NAME": "データベース名",
+      "PORT": "ポート",
+      "USERNAME": "ユーザー名",
+      "PASSWORD": "パスワード",
+      "DIALECT": "方言",
+      "ACTION": "アクション",
+      "MODAL-ADDDATA": "データベースを追加",
+      "MODAL-EDITDATA": "データベースを編集",
+      "PLACEHOLDER-HOST": "ホストを入力",
+      "PLACEHOLDER-NAME": "データベース名を入力",
+      "PLACEHOLDER-PORT": "ポートを入力",
+      "PLACEHOLDER-USERNAME": "ユーザー名を入力",
+      "PLACEHOLDER-PASSWORD": "パスワードを入力",
+      "PLACEHOLDER-DIALECT": "方言を入力"
+    },
+    "DATA-SOURCE": {
+      "TITLE": "データソース",
+      "HEADER": "データソースリスト",
+      "DATABASE": "データベース",
+      "QUERY": "クエリ",
+      "RING": "リング",
+      "DATA-ITEM": "データ項目",
+      "LINE": "ライン",
+      "TYPE-DATA": "データタイプ",
+      "ACTION": "アクション",
+      "MODAL-ADDDATA": "データソースを追加",
+      "MODAL-EDITDATA": "データソースを編集",
+      "PLACEHOLDER-DATABASE": "データベースを選択",
+      "PLACEHOLDER-QUERY": "クエリを入力",
+      "PLACEHOLDER-RING": "リングを入力",
+      "PLACEHOLDER-DATA-ITEM": "データ項目を入力",
+      "PLACEHOLDER-LINE": "ラインを選択",
+      "PLACEHOLDER-TYPE-DATA": "データタイプを選択"
+    },
+    "STANDARD": {
+      "TITLE": "基準",
+      "HEADER": "基準データリスト",
+      "DATA-ITEM": "データ項目",
+      "MIN": "最小",
+      "MAX": "最大",
+      "UNIT": "単位",
+      "PRODUCT-CATEGORY": "製品カテゴリ",
+      "ACTION": "アクション",
+      "MODAL-ADDDATA": "基準データを追加",
+      "MODAL-EDITDATA": "基準データを編集",
+      "PLACEHOLDER-DATA-ITEM": "データ項目を入力",
+      "PLACEHOLDER-MIN": "最小値を入力",
+      "PLACEHOLDER-MAX": "最大値を入力",
+      "PLACEHOLDER-UNIT": "単位を入力",
+      "PLACEHOLDER-PRODUCT-CATEGORY": "製品カテゴリを入力"
+    }
+  },
+  "MENUITEMS": {
+    "MENU": {
+      "TEXT": "メニュー"
+    },
+    "MASTERDATA": {
+      "TEXT": "マスターデータ",
+      "BADGE": "新しい",
+      "LIST": {
+        "AUTHORIZATION": "認可",
+        "LINE": "ライン",
+        "PRODUCT": "製品",
+        "DATABASE": "データベース",
+        "DATA-SOURCE": "データソース",
+        "STANDARD": "基準"
+      }
+    },
+    "TRACEABILITY": {
+      "TEXT": "トレーサビリティ"
+    },
+    "REPORTS": {
+      "TEXT": "レポート"
+    },
+    "SETTINGS": {
+      "TEXT": "設定"
+    },
+    "DASHBOARD": {
+      "TEXT": "ダッシュボード",
+      "BADGE": "新しい",
+      "LIST": {
+        "ANALYTICS": "分析",
+        "CRM": "CRM",
+        "ECOMMERCE": "電子商取引",
+        "CRYPTO": "暗号通貨",
+        "PROJECTS": "プロジェクト",
+        "NFT": "NFT",
+        "JOB": "仕事"
+      }
+    },
+    "APPS": {
+      "TEXT": "アプリ",
+      "LIST": {
+        "CALENDAR": "カレンダー",
+        "CHAT": "チャット",
+        "EMAIL": "メール",
+        "MAILBOX": "メールボックス",
+        "MAILTEMPLATES": "メールテンプレート",
+        "BASICACTION": "基本アクション",
+        "ECOMMERCEACTION": "電子商取引アクション",
+        "ECOMMERCE": "電子商取引",
+        "PRODUCTS": "製品",
+        "PRODUCTDETAILS": "製品詳細",
+        "CREATEPRODUCT": "製品を作成",
+        "ORDERS": "注文",
+        "ORDERDETAILS": "注文詳細",
+        "CUSTOMERS": "顧客",
+        "SHOPPINGCART": "ショッピングカート",
+        "CHECKOUT": "チェックアウト",
+        "SELLERS": "販売者",
+        "SELLERDETAILS": "販売者詳細",
+        "PROJECTS": "プロジェクト",
+        "LIST": "リスト",
+        "OVERVIEW": "概要",
+        "CREATEPROJECT": "プロジェクトを作成"
+      }
+    },
+    "WIDGETS": {
+      "TEXT": "ウィジェット"
+    },
+    "FORMS": {
+      "TEXT": "フォーム",
+      "LIST": {
+        "BASIC": "基本",
+        "ADVANCED": "高度",
+        "VALIDATION": "バリデーション",
+        "WIZARD": "ウィザード",
+        "EDITORS": "エディター"
+      }
+    },
+    "CHARTS": {
+      "TEXT": "チャート",
+      "LIST": {
+        "HEATMAP": "ヒートマップ",
+        "TREEMAP": "ツリーマップ",
+        "PIE": "パイ",
+        "RADIALBAR": "ラジアルバー",
+        "RADAR": "レーダー",
+        "POLARAREA": "ポーラーエリア"
+      }
+    },
+    "MAPS": {
+      "TEXT": "地図",
+      "LIST": {
+        "GOOGLEMAPS": "グーグルマップ",
+        "VECTOR": "ベクター",
+        "LEAFLET": "リーフレット"
+      }
+    },
+    "MULTILEVEL": {
+      "TEXT": "マルチレベル",
+      "LIST": {
+        "LEVEL1.1": "レベル 1.1",
+        "LEVEL1.2": "レベル 1.2",
+        "LEVEL2.1": "レベル 2.1",
+        "LEVEL2.2": "レベル 2.2"
+      }
+    }
+  }
+}

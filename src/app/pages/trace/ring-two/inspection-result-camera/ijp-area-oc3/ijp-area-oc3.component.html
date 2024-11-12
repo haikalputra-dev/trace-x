@@ -1,0 +1,143 @@
+<ng-template [ngIf]="!isActiveToggleStatisticInspectionCamera">
+    <h5>{{activeTitle}}</h5>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="search-box">
+              <input type="text" #searchInputInspectionCamera class="form-control search" placeholder="Search..."
+                (input)="onSearchAllInspectionCamera(searchInputInspectionCamera.value)" />
+              <i class="ri-search-line search-icon"></i>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div style="float: right;">
+              <span style="margin-right: 4px;">Show</span>
+              <select class="data rounded-3" id="pageSizeDropdown" #pageSizeDropdownInspectionCamera
+                [value]="pageSizeInspectionCamera" (change)="onPageSizeChangeInspectionCamera(pageSizeDropdownInspectionCamera.value)">
+                <option value="1">1</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              <span style="margin-left: 4px;">Data</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="table-responsive">
+            <table class="table table-gridjs">
+              <thead class="text-center">
+                <tr>
+                  <th>No</th>
+                  <th>Item</th>
+                  <th>Standard</th>
+                  <th>Value</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of listDataInspectionCamera; let i = index">
+                  <ng-container *ngIf="i >= (pageInspectionCamera - 1) * pageSizeInspectionCamera && i < pageInspectionCamera * pageSizeInspectionCamera">
+                    <td class="text-center">{{i + 1}}</td>
+                    <td>{{data['item']}}</td>
+                    <td class="text-center" >{{data['standard']}}</td>
+                    <td class="text-center">
+                      <span class="badge rounded-pill"
+                      [class.text-bg-success]="data['value'] == '1'"
+                      [class.text-bg-danger]="data['value'] == '0'"
+                      style="font-size: 12px;">
+                      {{ data['value'] == '1' ? 'PASSED' : 'NOT PASSED' }}
+                    </span>
+                    </td>
+                    <td class="text-center">
+                      <button *ngIf="data['table'] != 0" type="button" class="btn btn-sm btn-warning" ngbTooltip="View Statistic" rippleEffect (click)="toggleViewStaticInspectionCamera(data)"><span class="ri-line-chart-fill"></span></button>
+                      <button *ngIf="data['table'] == 0" type="button" class="btn btn-sm btn-warning" ngbTooltip="View Statistic" rippleEffect disabled><span class="ri-line-chart-fill"></span></button>
+                    </td>
+                  </ng-container>
+                </tr>
+                <tr *ngIf="listDataInspectionCamera?.length == 0">
+                  <td colspan="8" class="text-center">No data available.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row justify-content-md-between align-items-md-center">
+            <div class="col col-sm-6">
+              <div class="dataTables_info mb-2" id="tickets-table_info" role="status"
+                aria-live="polite">
+                {{ getShowingTextInspectionCamera() }} of {{ totalRecordsInspectionCamera }} entries
+              </div>
+            </div>
+            <div class="col col-sm-6">
+              <div class="pagination justify-content-end">
+                <ngb-pagination [collectionSize]="totalRecordsInspectionCamera" [(page)]="pageInspectionCamera"
+                  [pageSize]="pageSizeInspectionCamera" [maxSize]="3" [ellipses]="false"></ngb-pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="isActiveToggleStatisticInspectionCamera">
+    <div class="row">
+      <div class="col-12">
+        <button class="btn btn-primary btn-icon waves-effect waves-light"
+        (click)="toggleViewStaticInspectionCamera('')">
+        <span class="ri-arrow-left-fill"></span>
+      </button>
+      </div>
+      <div class="col-xl-3 col-md-6 mt-2">
+        <div class="row">
+          <div class="col-lg-12 mb-2">
+            <div class="card card-animate no-shadow-biru">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5 class="mb-3 text-primary"> {{ activeTitle }} </h5>
+                    <div class="d-flex mb-1">
+                      <p class="text-truncate fw-bold fs-15 mb-0">
+                        max : {{ formatNumber(Max) }}
+                      </p>
+                    </div>
+                    <div class="d-flex mb-1">
+                      <p class="text-truncate fw-bold fs-15 mb-0">
+                        min : {{ formatNumber(Min) }}
+                      </p>
+                    </div>
+                    <div class="d-flex mb-1">
+                      <p class="text-truncate fw-bold fs-15 mb-0">
+                        avg : {{ formatNumber(Avg) }}
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <i-feather name="external-link" class="text-primary feather-icon-align">
+                      </i-feather>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-9 col-md-6 mt-2">
+        <h5>{{activeTitle}}</h5>
+        <div *ngIf="chartRendered">
+          <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+          [update]="true" style="width: 100%; height: 400px; display: block;">
+          </highcharts-chart>
+        </div>
+        <div *ngIf="!chartRendered">
+          <h4 class="no-data">No Data</h4>
+        </div>
+      </div>
+    </div>
+  </ng-template>
